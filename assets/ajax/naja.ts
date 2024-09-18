@@ -104,6 +104,7 @@ export class NajaAjax<C extends Naja = Naja, G extends Datagrid = Datagrid> exte
 			return this.dispatch('complete', {
 				...e.detail,
 				params: e.detail.request,
+				payload: e.detail.payload as Payload,
 				response: e.detail.response,
 			});
 		})

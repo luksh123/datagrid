@@ -16,7 +16,11 @@ export class Happy {
 
 	init() {
 		if (!document.querySelector('[data-happy-stylesheet]')) {
-			document.head.append(`<style data-happy-stylesheet>${happyStyles}</style>`)
+			//document.head.append(<style data-happy-stylesheet>${happyStyles}</style>");
+			let headStyle = document.createElement("style");
+			headStyle.setAttribute('data-happy-stylesheet','');
+			headStyle.innerText = happyStyles;
+			document.head.append(headStyle);
 		}
 		this.removeBySelector(".happy-radio");
 		this.removeBySelector(".happy-checkbox");
@@ -133,6 +137,8 @@ export class Happy {
 	}
 
 	checkCheckboxStateOnClick(event: Event) {
+
+
 		const target = event.target;
 
 		// When target is SVGSVGElement (<svg>), return parentNode,
@@ -153,10 +159,12 @@ export class Happy {
 
 		const name = happyInput.getAttribute("data-name");
 		const value = happyInput.getAttribute("data-value");
+		
 
 		const input = document.querySelector(
-			`.happy-checkbox[data-name="${name}"]` + (!!value ? `[value="${value}"]` : "")
+			`input.happy[type=checkbox][name="${name}"]` + (!!value ? `[value="${value}"]` : "")
 		);
+
 		if (!(input instanceof HTMLInputElement)) return;
 
 		const checked = happyInput.classList.contains("active");

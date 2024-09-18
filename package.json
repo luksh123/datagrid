@@ -8,7 +8,7 @@
 		"tables"
 	],
 	"license": "MIT",
-	"main": "assets/datagrid.js",
+	"main": "assets/index.ts",
 	"files": [
 		"assets/*"
 	],

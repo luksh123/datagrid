@@ -63,7 +63,7 @@ export interface SuccessEventDetail<P = DatagridPayload, R extends Response = Re
 export interface CompleteEventDetail<P = DatagridPayload, R extends Response = Response> {
 	params: BaseRequestParams;
 	payload: Payload<P>;
-	response: Response;
+	response?: Response;
 }
 
 export interface ErrorEventDetail<E extends Error = Error, R extends Response = Response> {
