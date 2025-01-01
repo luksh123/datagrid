@@ -137,8 +137,6 @@ export class Happy {
 	}
 
 	checkCheckboxStateOnClick(event: Event) {
-
-
 		const target = event.target;
 
 		// When target is SVGSVGElement (<svg>), return parentNode,
@@ -159,12 +157,10 @@ export class Happy {
 
 		const name = happyInput.getAttribute("data-name");
 		const value = happyInput.getAttribute("data-value");
-		
 
 		const input = document.querySelector(
-			`input.happy[type=checkbox][name="${name}"]` + (!!value ? `[value="${value}"]` : "")
+			`.happy-checkbox[data-name="${name}"]` + (!!value ? `[value="${value}"]` : "")
 		);
-
 		if (!(input instanceof HTMLInputElement)) return;
 
 		const checked = happyInput.classList.contains("active");

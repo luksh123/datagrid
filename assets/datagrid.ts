@@ -41,6 +41,7 @@ export class Datagrid extends EventTarget {
 				this.init();
 			}
 		});
+
 		this.init();
 	}
 
@@ -74,9 +75,7 @@ export class Datagrid extends EventTarget {
 			});
 		});
 
-
 		this.ajax.addEventListener("success", ({detail: {payload}}) => {
-
 			// todo: maybe move?
 			if (payload._datagrid_name && payload._datagrid_name === this.name) {
 				this.el.querySelector<HTMLElement>("[data-datagrid-reset-filter-by-column]")

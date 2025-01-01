@@ -3,14 +3,11 @@ import { isEnter } from "../../utils";
 import { Datagrid, Datagrids } from "../..";
 
 export class InlinePlugin implements DatagridPlugin {
-	
 	onInit(datagrids: Datagrids) {
-
 	}
 
 	onDatagridInit(datagrid: Datagrid): boolean {
 		datagrid.ajax.addEventListener('success', ({ detail: { payload } }) => {
-
 			if (!payload._datagrid_name || payload._datagrid_name !== datagrid.name) return;
 
 			if (payload._datagrid_inline_edited || payload._datagrid_inline_edit_cancel) {
